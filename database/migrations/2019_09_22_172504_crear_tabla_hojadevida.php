@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaAreas extends Migration
+class CrearTablaHojadevida extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CrearTablaAreas extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
+        Schema::create('hojadevida', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('documento',150);
+            $table->integer('contratista_id')->unsigned();
+
+            $table->foreign('contratista_id')->references('id')
+            ->on('contratistas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CrearTablaAreas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('hojadevida');
     }
 }

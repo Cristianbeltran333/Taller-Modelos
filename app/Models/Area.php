@@ -1,4 +1,4 @@
-<?php
++<?php
 
 namespace App\Models;
 
@@ -6,42 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
-     protected $table = 'areas';
+    protected $table = 'areas';
     
-      protected $fillable = [
-        'nombre',
-        'dato'
-                
-    ]; 
-
-     protected $casts = [
-        'dato' => 'array',
-
-    ];
+    protected $fillable =[ 'nombre' ];
     
-     protected $appends = ['nombre_area', 'list_proyecto'];    
-
-
+     
      public function proyectos()
     {
         return $this->hasMany('App\Models\Proyecto');
     }
+    
 
-
-     public function getNombreAreaAttribute()
-    {
-        return "{$this->nombre} {$this->id}";
+   public function actividades(){
+    	return $this->belongsToMany('App\Models\Actividad');
     }
 
 
-    public function getListProyectoAttribute()
-    {
-        return $this->proyectos;
+    public function Contratistas_Contratos(){
+       return $this->hasManyThrough('App\Models\Contratista_Contrato','App\Models\Proyecto');
+
     }
 
-      public function setNombreAttribute($value)
-    {
-        $this->attributes['nombre'] = strtolower($value);
-    }
 
 }

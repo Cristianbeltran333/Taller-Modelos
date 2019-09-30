@@ -12,3 +12,15 @@
 */
 
 Route::get('/area', 'AreaController@index');
+
+Route::post('/area', 'AreaController@store');
+
+Route::get('/contratista', 'ContratistaController@index');
+
+Route::post('/contratista', 'ContratistaController@store');
+
+Route::get('/actividad', 'ActividadController@index');
+
+Route::post('/actividad', 'ActividadController@store');
+
+Route::get('/area', 'AreaController@getAreas');

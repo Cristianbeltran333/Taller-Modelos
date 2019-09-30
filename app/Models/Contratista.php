@@ -15,10 +15,14 @@ class Contratista extends Model
                 
     ]; 
 
+    public function hojadevida()
+    {
+        return $this->hasOne('App\Models\Hojadevida');
+    }   
 
-     public function contratista_contrato()
+       public function contratista_contrato()
     {
         return $this->hasMany('App\Models\Contratista_Contrato');
-    }
+    } 
    
 }

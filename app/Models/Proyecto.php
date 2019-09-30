@@ -11,7 +11,7 @@ class Proyecto extends Model
      protected $fillable = [
         'nombre_proyecto',
         'descripcion_proyecto',
-        'funte_recurso',
+        'fuente_recurso',
         'valor_proyecto',
         'estado_proyecto',
         'area_id'
@@ -22,8 +22,4 @@ class Proyecto extends Model
         return $this->belongsTo('App\Models\Area');
     }
 
-     public function contratistas()
-    {
-        return $this->belongsToMany('App\Models\Contratista','contratista_contratos','proyecto_id','contratistao_id');
-    }
 }

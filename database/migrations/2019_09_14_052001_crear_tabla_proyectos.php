@@ -15,11 +15,11 @@ class CrearTablaProyectos extends Migration
     {
         Schema::create('proyectos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre_proyecto',100);
-            $table->string('descripcion_proyecto',100);
-            $table->string('fuente_recurso',100);
+            $table->string('nombre_proyecto',200);
+            $table->string('descripcion_proyecto',200);
+            $table->string('fuente_recurso',200);
             $table->decimal('valor_proyecto',15,2);
-            $table->string('estado_proyecto',50);
+            $table->string('estado_proyecto',150);
             $table->integer('area_id')->unsigned();
             $table->foreign('area_id')
             ->references('id')
