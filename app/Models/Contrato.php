@@ -18,4 +18,9 @@ class Contrato extends Model
     {
         return $this->hasMany('App\Models\Contratista_Contrato');
     }
+
+    public function imagenes()
+    {
+        return $this->morphMany('App\Models\Imagen', 'imageable');
+    }
 }

@@ -24,3 +24,15 @@ Route::get('/actividad', 'ActividadController@index');
 Route::post('/actividad', 'ActividadController@store');
 
 Route::get('/area', 'AreaController@getAreas');
+
+Route::get('/imagen', 'ImagenController@index');
+
+Route::post('/imagen', 'ImagenController@store');
+
+Route::get('/imagenproyecto', 'ImagenController@indexproyecto');
+
+Route::post('/imagenproyecto', 'ImagenController@storeproyecto');
+
+Route::get('/imagencontrato', 'ImagenController@indexcontrato');
+
+Route::post('/imagencontrato', 'ImagenController@storecontrato');

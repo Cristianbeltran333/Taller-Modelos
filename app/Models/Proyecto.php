@@ -22,4 +22,9 @@ class Proyecto extends Model
         return $this->belongsTo('App\Models\Area');
     }
 
+    public function imagenes()
+    {
+        return $this->morphMany('App\Models\Imagen', 'imageable');
+    }
+
 }

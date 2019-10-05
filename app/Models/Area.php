@@ -1,4 +1,4 @@
-+<?php
+<?php
 
 namespace App\Models;
 
@@ -25,6 +25,11 @@ class Area extends Model
     public function Contratistas_Contratos(){
        return $this->hasManyThrough('App\Models\Contratista_Contrato','App\Models\Proyecto');
 
+    }
+
+    public function imagenes()
+    {
+        return $this->morphMany('App\Models\Imagen', 'imageable');
     }
 
 
